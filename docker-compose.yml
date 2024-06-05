@@ -1,0 +1,38 @@
+version: "3.8"
+services:
+  server:
+    image: 127.0.0.1:5000/server:0.0.1-SNAPSHOT
+    restart: on-failure
+    ports:
+      - 8000:8000
+    networks:
+      - microservice-net
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+  clienttwo:
+    image: 127.0.0.1:5000/clienttwo:0.0.1-SNAPSHOT
+    restart: on-failure
+    ports:
+      - 9001:9001
+    networks:
+      - microservice-net
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+  clientone:
+    image: 127.0.0.1:5000/clientone:0.0.1-SNAPSHOT
+    restart: on-failure
+    ports:
+      - 9002:9002
+    networks:
+      - microservice-net
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+networks:
+  microservice-net:
+    driver: bridge

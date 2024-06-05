@@ -1,0 +1,13 @@
+server:
+  port: 8000
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 121.37.161.208
+  application:
+    name: consumer
+
+feign:
+ circuitbreaker:
+   enabled: true

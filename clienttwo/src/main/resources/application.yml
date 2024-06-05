@@ -1,0 +1,11 @@
+server:
+  port: 9001
+
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 121.37.161.208
+
+  application:
+    name: provider
